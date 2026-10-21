@@ -1,8 +1,6 @@
 # Contributing
 
-This repository is an [Agent Plugin](https://agent-plugins.org). Cursor loads that format alongside its own. See [Cursor plugins](https://cursor.com/docs/plugins) and the [plugins reference](https://cursor.com/docs/reference/plugins).
-
-Agent Plugins keep `plugin.json` at the repository root and package skills and MCP servers. Cursor Plugins use `.cursor-plugin/plugin.json` and can also include rules, agents, commands, hooks, and variables. This package is four skills and the Roam MCP server, so it uses the Agent Plugin format.
+This is a Cursor plugin. The manifest is `.cursor-plugin/plugin.json`. Cursor discovers `skills/` and the root `mcp.json`. See [Cursor plugins](https://cursor.com/docs/plugins) and the [plugins reference](https://cursor.com/docs/reference/plugins).
 
 ## Load it locally
 
@@ -12,7 +10,7 @@ Cursor reads local plugins from `~/.cursor/plugins/local`. From the root of this
 mkdir -p ~/.cursor/plugins/local
 (set -e
   mkdir ~/.cursor/plugins/local/roam
-  cp -R plugin.json skills mcp.json README.md LICENSE ~/.cursor/plugins/local/roam/
+  cp -R .cursor-plugin skills assets mcp.json README.md LICENSE ~/.cursor/plugins/local/roam/
 )
 ```
 
@@ -21,3 +19,9 @@ Restart Cursor or run **Developer: Reload Window**. In **Customize**, confirm th
 If a Marketplace plugin with the same name is installed, that copy takes precedence over this local one.
 
 To test an update, remove `~/.cursor/plugins/local/roam`, repeat the copy, and reload Cursor. Editing this checkout does not update the installed copy.
+
+## Checks
+
+`npm run validate` checks `.cursor-plugin/plugin.json` against the Cursor plugin schema and checks that each skill has a name and a description. GitHub runs the same check on pull requests.
+
+The validators in [cursor/plugin-template](https://github.com/cursor/plugin-template) and [cursor/plugins](https://github.com/cursor/plugins) require `.cursor-plugin/marketplace.json`. This repository is one plugin, so it does not use that file. The schema in `schemas/plugin.schema.json` is the same manifest schema those validators use.

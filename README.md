@@ -2,7 +2,7 @@
 
 Connect Cursor to [Roam](https://ro.am), the virtual office from Roam HQ, Inc. Search your team's chat and Magic Minutes meeting transcripts to recall decisions, prepare for meetings, and check work against what was agreed.
 
-Install Roam from the Cursor Marketplace once it is listed.
+Install Roam from the Cursor Marketplace.
 
 ## What it installs
 
@@ -12,6 +12,8 @@ A remote MCP server at `https://api.ro.am/mcp`, plus four skills:
 - `meeting-prep` briefs an upcoming meeting from the calendar, prior Magic Minutes, and chat since the last discussion.
 - `decision-review` checks the current diff or plan against those decisions before submitting.
 - `eng-process` looks up your team's build, run, and deployment procedures, including recent tooling changes, when the repo docs are missing, incomplete, or stale. It searches across channels unless you name one.
+
+The server exposes Roam's full tool set, including sending messages. The skills only read.
 
 ## Connect
 
