@@ -31,7 +31,7 @@ From the root of this checkout, copy the plugin files into Cursor's local plugin
 mkdir -p ~/.cursor/plugins/local
 (set -e
   mkdir ~/.cursor/plugins/local/roam
-  cp -R .cursor-plugin skills assets mcp.json README.md LICENSE ~/.cursor/plugins/local/roam/
+  cp -R plugin.json skills mcp.json README.md LICENSE ~/.cursor/plugins/local/roam/
 )
 ```
 
@@ -61,7 +61,7 @@ You can also invoke a skill explicitly, such as `/roam-context` or `/meeting-pre
 
 ## Repository structure
 
-This is a single Cursor plugin. `.cursor-plugin/plugin.json` declares its metadata; Cursor automatically discovers `skills/` and the root `mcp.json`.
+This is an Agent Plugin. `plugin.json` at the repository root declares its metadata for the [Agent Plugins](https://agent-plugins.org) standard. Cursor discovers `skills/` and the root `mcp.json`. `assets/logo.svg` is kept for a future listing; the standard manifest has no logo field.
 
 ## License
 
