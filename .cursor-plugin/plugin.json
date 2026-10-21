@@ -1,5 +1,4 @@
 {
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "roam",
   "description": "Connect Cursor to Roam (ro.am), the virtual office. Search team chat and Magic Minutes meeting transcripts to recall discussions and decisions, prepare for meetings, and review work.",
   "version": "0.1.0",
@@ -7,6 +6,7 @@
     "name": "Roam HQ, Inc."
   },
   "homepage": "https://ro.am",
+  "repository": "https://github.com/WonderInventions/roam-cursor-plugin",
   "license": "MIT",
   "keywords": ["roam", "ro.am", "roam hq", "magic minutes", "magicast", "ainbox", "meeting transcripts", "meeting notes", "team chat", "mcp"]
 }
