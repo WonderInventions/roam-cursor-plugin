@@ -29,6 +29,14 @@ if (!existsSync(manifestPath)) {
       fail(`plugin.json ${error.instancePath || "/"}: ${detail}`);
     }
   }
+  if (typeof manifest.logo === "string" && manifest.logo.length > 0 && !/^https?:\/\//.test(manifest.logo)) {
+    const parts = manifest.logo.split("/");
+    if (manifest.logo.startsWith("/") || parts.includes("..") || parts.includes("")) {
+      fail(`plugin.json logo must be a relative path: ${manifest.logo}`);
+    } else if (!existsSync(join(root, manifest.logo))) {
+      fail(`plugin.json logo file not found: ${manifest.logo}`);
+    }
+  }
 }
 
 if (existsSync(join(root, "plugin.json"))) {
@@ -55,8 +63,11 @@ if (!existsSync(skillsDir)) {
     }
     const end = text.indexOf("\n---\n", 4);
     const frontmatter = end === -1 ? "" : text.slice(4, end);
-    if (!/^name:\s*\S/m.test(frontmatter)) {
+    const name = frontmatter.match(/^name:\s*(\S+)/m);
+    if (!name) {
       fail(`${entry.name}: SKILL.md frontmatter is missing name`);
+    } else if (name[1] !== entry.name) {
+      fail(`${entry.name}: SKILL.md name is ${name[1]}, expected ${entry.name}`);
     }
     if (!/^description:\s*\S/m.test(frontmatter)) {
       fail(`${entry.name}: SKILL.md frontmatter is missing description`);

@@ -8,5 +8,6 @@
   "homepage": "https://ro.am",
   "repository": "https://github.com/WonderInventions/roam-cursor-plugin",
   "license": "MIT",
+  "logo": "assets/roam-app-icon-rounded.png",
   "keywords": ["roam", "ro.am", "roam hq", "magic minutes", "magicast", "ainbox", "meeting transcripts", "meeting notes", "team chat", "mcp"]
 }

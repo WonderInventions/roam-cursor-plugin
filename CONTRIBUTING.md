@@ -2,8 +2,6 @@
 
 This is a Cursor plugin. The manifest is `.cursor-plugin/plugin.json`. Cursor discovers `skills/` and the root `mcp.json`. See [Cursor plugins](https://cursor.com/docs/plugins) and the [plugins reference](https://cursor.com/docs/reference/plugins).
 
-A logo is optional. If you add one, commit it under `assets/` and set `logo` in the manifest to that relative path, for example `assets/logo.png`.
-
 ## Load it locally
 
 Cursor reads local plugins from `~/.cursor/plugins/local`. From the root of this checkout, copy the plugin files. The destination must not already exist, so an older copy is not mixed with this one.
@@ -12,7 +10,7 @@ Cursor reads local plugins from `~/.cursor/plugins/local`. From the root of this
 mkdir -p ~/.cursor/plugins/local
 (set -e
   mkdir ~/.cursor/plugins/local/roam
-  cp -R .cursor-plugin skills mcp.json README.md LICENSE ~/.cursor/plugins/local/roam/
+  cp -R .cursor-plugin skills assets mcp.json README.md LICENSE ~/.cursor/plugins/local/roam/
 )
 ```
 
