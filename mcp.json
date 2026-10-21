@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "roam": {
+      "type": "http",
+      "url": "https://api.ro.am/mcp"
+    }
+  }
+}
